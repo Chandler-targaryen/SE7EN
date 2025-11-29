@@ -1,11 +1,16 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, APIRouter, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
-from .clerk_auth import verify_clerk_token
+from .database.db import Base, engine
+from app.webhooks import router
+# from .clerk_auth import verify_clerk_token
 
 app = FastAPI()
 
-origins = ["http://localhost:3000"]
+app.include_router(router)
+# router = APIRouter(prefix="")
+
+origins = ["http://localhost:3000", "https://untendered-tawny-extendedly.ngrok-free.dev"]
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,6 +20,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/protected")
-def protected_route(user=Depends(verify_clerk_token)):
-    return {"message": "Protected content", "user": user}
+@app.get("/")
+def main():
+    Base.metadata.create_all(bind=engine)
+
+# @app.get("/protected")
+# def protected_route(user=Depends(verify_clerk_token)):
+#     return {"message": "Protected content", "user": user}
