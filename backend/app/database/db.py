@@ -4,7 +4,7 @@ from sqlalchemy.pool import NullPool
 from pydantic import EmailStr
 
 
-engine = create_engine("sqlite:///lala_land.db", connect_args={"check_same_thread": False}, poolclass=NullPool)
+engine = create_engine("sqlite:///SE7EN.db", connect_args={"check_same_thread": False}, poolclass=NullPool)
 Base = declarative_base()
 
 with engine.connect() as conn:
