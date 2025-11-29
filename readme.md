@@ -17,6 +17,8 @@ python --version
 python -m venv venv
 venv\Scripts\activate
 source venv/bin/activate
-pip install -r requirements.txt
+pip install svix
+pip install uvicorn
+
 
 uvicorn app.main:app --reload --port 8000
