@@ -1,38 +1,39 @@
-import { Box, Typography, Card, CardContent } from "@mui/material";
-import { useEffect, useState } from "react";
-import AnimatedPage from "../../components/AnimatedPage";
+import { Box, Typography } from "@mui/material";
 
 export const PastBookings = () => {
-  const [bookings, setBookings] = useState([]);
+  const past = JSON.parse(localStorage.getItem("pastBookings")) || [];
 
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("pastBookings")) || [];
-    setBookings(saved);
-  }, []);
+  if (past.length === 0) {
+    return (
+      <Box sx={{ p: 4, color: "white" }}>
+        <Typography>No past bookings found.</Typography>
+      </Box>
+    );
+  }
 
   return (
-    <AnimatedPage>
-      <Box sx={{ p: 4 }}>
-        <Typography variant="h4" sx={{ fontWeight: 700 }}>
-          Past Bookings
-        </Typography>
+    <Box sx={{ p: 4, color: "white" }}>
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        Past Bookings
+      </Typography>
 
-        {bookings.length === 0 ? (
-          <Typography sx={{ mt: 2 }}>No past bookings yet.</Typography>
-        ) : (
-          bookings.map((b) => (
-            <Card key={b.bookingId} sx={{ mt: 3 }}>
-              <CardContent>
-                <Typography variant="h6">Booking ID: {b.bookingId}</Typography>
-                <Typography>Service: {b.serviceId}</Typography>
-                <Typography>Date: {b.date}</Typography>
-                <Typography>Time: {b.time}</Typography>
-                <Typography>Status: {b.status}</Typography>
-              </CardContent>
-            </Card>
-          ))
-        )}
-      </Box>
-    </AnimatedPage>
+      {past.map((b, i) => (
+        <Box
+          key={i}
+          sx={{
+            mb: 3,
+            p: 2,
+            border: "1px solid #444",
+            borderRadius: "8px",
+          }}
+        >
+          <Typography>Service: {b.service}</Typography>
+          <Typography>Date: {b.date}</Typography>
+          <Typography>Time: {b.time}</Typography>
+          <Typography>Address: {b.address}</Typography>
+          <Typography>Booking ID: {b.bookingId}</Typography>
+        </Box>
+      ))}
+    </Box>
   );
 };

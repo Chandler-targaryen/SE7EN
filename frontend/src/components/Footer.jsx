@@ -8,7 +8,8 @@ export default function Footer() {
         py: 2,
         opacity: 0.6,
         fontSize: "14px",
-        mt: 4
+        mt: 4,
+        color: "white" 
       }}
     >
       <Typography variant="body2">

@@ -8,20 +8,20 @@ export const BookingConfirmation = () => {
 
   return (
     <AnimatedPage>
-      <Box sx={{ p: 4, textAlign: "center" }}>
+      <Box sx={{ p: 4, textAlign: "center" , color: "white" }}>
         <Typography variant="h4" sx={{ fontWeight: 700 }}>
           Booking Confirmed 🎉
         </Typography>
 
-        <Typography variant="h6" sx={{ mt: 2 }}>
+        <Typography variant="h6" sx={{ mt: 2, color: "white"  }}>
           Booking ID: <strong>{booking.bookingId}</strong>
         </Typography>
 
-        <Typography sx={{ mt: 1 }}>
+        <Typography sx={{ mt: 1, color: "white"  }}>
           Your service has been successfully booked.
         </Typography>
 
-        <Button variant="contained" sx={{ mt: 3 }} onClick={() => navigate("/")}>
+        <Button variant="contained" sx={{ mt: 3, color: "white"  }} onClick={() => navigate("/")}>
           Back to Home
         </Button>
       </Box>

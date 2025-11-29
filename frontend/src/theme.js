@@ -4,7 +4,7 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#42A5FF", // Electric blue accent
+      main: "#d342ffff",
     },
     background: {
       default: "#000000",

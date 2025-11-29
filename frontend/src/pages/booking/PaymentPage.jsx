@@ -1,49 +1,50 @@
 import { Box, Typography, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import AnimatedPage from "../../components/AnimatedPage";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const PaymentPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const confirmPayment = () => {
-    const booking = JSON.parse(localStorage.getItem("currentBooking"));
-    const bookingId = "SE7EN-" + Math.floor(100000 + Math.random() * 900000);
+  const booking = location.state?.booking;
 
-    const finalBooking = {
-      ...booking,
-      bookingId,
-      status: "Confirmed",
-    };
+  const handlePayment = () => {
+    if (!booking) return;
 
-    const history = JSON.parse(localStorage.getItem("pastBookings")) || [];
-    history.push(finalBooking);
-    localStorage.setItem("pastBookings", JSON.stringify(history));
+    // Save as current booking
+    localStorage.setItem("currentBooking", JSON.stringify(booking));
 
-    localStorage.setItem("lastBooking", JSON.stringify(finalBooking));
-    localStorage.removeItem("currentBooking");
+    // Save into past bookings list
+    const past = JSON.parse(localStorage.getItem("pastBookings")) || [];
+    past.push(booking);
+    localStorage.setItem("pastBookings", JSON.stringify(past));
 
-    navigate("/confirmation");
+    navigate("/confirmation", {
+      state: { booking },
+    });
   };
 
-  return (
-    <AnimatedPage>
-      <Box sx={{ p: 4, textAlign: "center" }}>
-        <Typography variant="h4" sx={{ fontWeight: 700 }}>
-          Payment
-        </Typography>
-
-        <Typography variant="h6" sx={{ mt: 2 }}>
-          Total Amount: <strong>AUD $0.00</strong>
-        </Typography>
-
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          All services are free in demo mode.
-        </Typography>
-
-        <Button variant="contained" sx={{ mt: 3 }} onClick={confirmPayment}>
-          Complete Payment
-        </Button>
+  if (!booking) {
+    return (
+      <Box sx={{ p: 4,margin: "auto" }}>
+        <Typography>No booking found.</Typography>
       </Box>
-    </AnimatedPage>
+    );
+  }
+
+  return (
+    <Box sx={{ p: 4 , color: "white", margin: "auto", textAlign: "center"   }}>
+      <Typography variant="h4" sx={{ mb: 3 }} >
+        Payment
+      </Typography>
+
+      <Typography>Service: {booking.service}</Typography>
+      <Typography>Date: {booking.date}</Typography>
+      <Typography>Address: {booking.address}</Typography>
+      <Typography sx={{ mb: 2 }}>Price: $0.00 AUD</Typography>
+
+      <Button variant="contained" color="primary" onClick={handlePayment}>
+        Pay Now (Free)
+      </Button>
+    </Box>
   );
 };

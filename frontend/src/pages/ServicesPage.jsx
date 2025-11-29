@@ -5,25 +5,25 @@ import { motion } from "framer-motion";
 const services = [
   // NORMAL SERVICES
   {
-    id: 1,
+    id: "cleaning",
     name: "Home Cleaning",
     description: "Deep cleaning, dusting, and full home sanitization.",
     category: "Home Service",
   },
   {
-    id: 2,
+    id: "electrical",
     name: "Electrical Repairs",
     description: "Wiring fixes, fan installations, switchboard repair.",
     category: "Home Service",
   },
   {
-    id: 3,
+    id: "plumbing",
     name: "Plumbing Services",
     description: "Leak repairs, pipe fixes, tap replacement.",
     category: "Home Service",
   },
   {
-    id: 4,
+    id: "moving",
     name: "Furniture Assembly",
     description: "Assembly of IKEA and other furniture sets.",
     category: "Home Service",
@@ -31,24 +31,25 @@ const services = [
 
   // COVID RELATED SERVICES
   {
-    id: 5,
+    id: "grocery_drop",
     name: "Contactless Grocery Drop-off",
     description: "Zero-contact groceries for isolation or safety needs.",
     category: "COVID Assistance",
   },
   {
-    id: 6,
+    id: "vax_help",
     name: "Medicine Delivery Assistance",
     description: "Pickup & delivery of medicines from pharmacy.",
     category: "COVID Assistance",
   },
   {
-    id: 7,
+    id: "covid_test",
     name: "COVID Sanitization Service",
     description: "Hospital-grade disinfectant fogging & sterilization.",
     category: "COVID Assistance",
   },
 ];
+
 
 export const ServicesPage = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ export const ServicesPage = () => {
     <Box sx={{ p: 4 }}>
       <Typography
         variant="h4"
-        sx={{ mb: 3, fontWeight: 700, textAlign: "center" }}
+        sx={{ mb: 3, fontWeight: 700, textAlign: "center", color: "white"  }}
       >
         Our Services
       </Typography>
