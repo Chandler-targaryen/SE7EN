@@ -14,8 +14,8 @@ npm start
 ## backend
 cd backend
 python --version
-python -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 source venv/bin/activate
 pip install svix
 pip install uvicorn

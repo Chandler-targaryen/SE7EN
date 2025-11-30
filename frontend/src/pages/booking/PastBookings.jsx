@@ -1,12 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Card, CardContent } from "@mui/material";
 
 export const PastBookings = () => {
   const past = JSON.parse(localStorage.getItem("pastBookings")) || [];
 
   if (past.length === 0) {
     return (
-      <Box sx={{ p: 4, color: "white" }}>
-        <Typography>No past bookings found.</Typography>
+      <Box sx={{ p: 4, color: "white", textAlign: "center" }}>
+        <Typography variant="h5">No Past Bookings</Typography>
       </Box>
     );
   }
@@ -17,22 +17,25 @@ export const PastBookings = () => {
         Past Bookings
       </Typography>
 
-      {past.map((b, i) => (
-        <Box
-          key={i}
+      {past.map((booking, index) => (
+        <Card
+          key={index}
           sx={{
+            background: "#111",
+            color: "white",
+            borderRadius: "16px",
             mb: 3,
-            p: 2,
-            border: "1px solid #444",
-            borderRadius: "8px",
+            border: "1px solid #333",
           }}
         >
-          <Typography>Service: {b.service}</Typography>
-          <Typography>Date: {b.date}</Typography>
-          <Typography>Time: {b.time}</Typography>
-          <Typography>Address: {b.address}</Typography>
-          <Typography>Booking ID: {b.bookingId}</Typography>
-        </Box>
+          <CardContent>
+            <Typography variant="h6">{booking.service}</Typography>
+            <Typography>Date: {booking.date}</Typography>
+            <Typography>Time: {booking.time}</Typography>
+            <Typography>Address: {booking.address}</Typography>
+            <Typography sx={{ fontWeight: 700 }}>Booking ID: {booking.bookingId}</Typography>
+          </CardContent>
+        </Card>
       ))}
     </Box>
   );

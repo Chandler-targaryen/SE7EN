@@ -7,62 +7,34 @@ export const BookingConfirmation = () => {
 
   return (
     <AnimatedPage>
-      <Box
-        sx={{
-          p: 4,
-          textAlign: "center",
-          color: "white",
-          mt: 5,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {/* TITLE */}
+      <Box sx={{ p: 4, textAlign: "center", color: "white", mt: 5 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
           🎉 Booking Confirmed!
         </Typography>
 
-        <Typography variant="h6" sx={{ opacity: 0.9, mb: 3 }}>
+        <Typography variant="h5" sx={{ opacity: 0.9, mb: 3 }}>
           Thank you for booking with SE7EN Home Services.
         </Typography>
 
-        {/* BOOKING CARD */}
         <Box
           sx={{
             background: "#111",
-            p: 4,
+            p: 3,
             borderRadius: "16px",
-            width: "100%",
-            maxWidth: "520px",
+            maxWidth: "500px",
             mx: "auto",
             border: "1px solid #333",
-            boxShadow: "0px 0px 25px rgba(255,255,255,0.08)",
-            textAlign: "left",
+            boxShadow: "0 0 25px rgba(255,255,255,0.1)",
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{ mb: 2, textAlign: "center", fontWeight: 700 }}
-          >
+          <Typography variant="h6" sx={{ mb: 2 }}>
             Booking Details:
           </Typography>
 
-          <Typography sx={{ mb: 1 }}>
-            <strong>Service:</strong> {booking?.service}
-          </Typography>
-
-          <Typography sx={{ mb: 1 }}>
-            <strong>Date:</strong> {booking?.date}
-          </Typography>
-
-          <Typography sx={{ mb: 1 }}>
-            <strong>Time:</strong> {booking?.time}
-          </Typography>
-
-          <Typography sx={{ mb: 1 }}>
-            <strong>Address:</strong> {booking?.address}
-          </Typography>
+          <Typography>Service: {booking?.serviceId}</Typography>
+          <Typography>Date: {booking?.date}</Typography>
+          <Typography>Time: {booking?.time}</Typography>
+          <Typography>Address: {booking?.address}</Typography>
 
           <Typography
             sx={{
@@ -70,28 +42,24 @@ export const BookingConfirmation = () => {
               fontWeight: 700,
               fontSize: "20px",
               color: "#4caf50",
-              textAlign: "center",
             }}
           >
             Booking ID: {booking?.bookingId}
           </Typography>
         </Box>
 
-        {/* BUTTONS */}
-        <Box sx={{ mt: 4 }}>
-          <Button
-            variant="contained"
-            sx={{ mr: 2 }}
-            component={Link}
-            to="/services"
-          >
-            Book Another Service
-          </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 4, mr: 2 }}
+          component={Link}
+          to="/services"
+        >
+          Book Another Service
+        </Button>
 
-          <Button variant="outlined" component={Link} to="/">
-            Go Home
-          </Button>
-        </Box>
+        <Button variant="outlined" sx={{ mt: 4 }} component={Link} to="/">
+          Go Home
+        </Button>
       </Box>
     </AnimatedPage>
   );

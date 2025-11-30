@@ -19,7 +19,7 @@ import { BookingForm } from "./pages/booking/BookingForm";
 import { PaymentPage } from "./pages/booking/PaymentPage";
 import { BookingConfirmation } from "./pages/booking/BookingConfirmation";
 import { PastBookings } from "./pages/booking/PastBookings";
-import { CurrentBooking } from "./pages/booking/CurrentBooking";
+import { UpcomingBookings } from "./pages/booking/UpcomingBookings";
 
 
 export default function App() {
@@ -78,10 +78,10 @@ export default function App() {
             }
           />
           <Route
-            path="/current-booking"
+            path="/upcoming-bookings"
             element={
               <Layout>
-                <CurrentBooking />
+                <UpcomingBookings />
               </Layout>
             }
           />

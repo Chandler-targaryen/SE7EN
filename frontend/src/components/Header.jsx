@@ -57,13 +57,13 @@ export default function Header() {
           <Button 
             color="inherit" 
             component={Link} 
-            to="/current-booking"
-            sx={{ color: isActive("/current-booking") }}
+            to="/upcoming-bookings"
+            sx={{ color: isActive("/upcoming-bookings") }}
           >
-            Current Booking
+            Upcoming Bookings
           </Button>
 
-          <Button 
+          <Button
             color="inherit" 
             component={Link} 
             to="/past-bookings"

@@ -1,38 +1,91 @@
+/* ---------------------------------------------------------
+   GLOBAL RESET — Removes default white borders & spacing
+--------------------------------------------------------- */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Ensures all elements scale consistently */
+* {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   GENERAL APP STYLING
+--------------------------------------------------------- */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #000000;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Smooth global transitions */
+* {
+  transition: 0.15s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Remove the default outline on click (optional) */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+}
+
+/* ---------------------------------------------------------
+   SCROLLBAR — Modern, minimal dark scrollbar
+--------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ---------------------------------------------------------
+   ANIMATIONS (SUBTLE)
+--------------------------------------------------------- */
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card hover glow (applies if you want to add class) */
+.card-glow:hover {
+  box-shadow: 0 0 18px rgba(224, 50, 240, 0.4);
+}
+
+/* Buttons general polish */
+button {
+  border-radius: 8px;
+}
+
+/* Links in dark mode */
+a {
+  color: #E032F0;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
 }
