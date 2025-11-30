@@ -1,25 +1,75 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ---------------------------------------
+# FRONTEND (React)
+# ---------------------------------------
+node_modules/
+frontend/node_modules/
+**/node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-*/__pycache__
-.venv
-
-# testing
-/coverage
-
-# production
+# React build
 /build
+/frontend/build
+dist/
+*.cache
+*.tsbuildinfo
 
-# misc
+# Vite/HMR cache (if using Vite)
+frontend/.vite/
+
+# ---------------------------------------
+# BACKEND (FastAPI / Python)
+# ---------------------------------------
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# SQLite database files (your DB should not be committed)
+/*.db
+backend/*.db
+
+# ---------------------------------------
+# DOCKER
+# ---------------------------------------
+*.pid
+*.seed
+*.log
+
+# ---------------------------------------
+# ENV + Secrets
+# ---------------------------------------
+.env
+.env.*
+backend/.env
+frontend/.env
+
+# ---------------------------------------
+# TOOLS
+# ---------------------------------------
+.pnp
+.pnp.js
+
+# ---------------------------------------
+# TESTING
+# ---------------------------------------
+coverage/
+coverage.*  
+htmlcov/
+
+# ---------------------------------------
+# OS / EDITORS / IDEs
+# ---------------------------------------
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+Thumbs.db
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains / PyCharm
+.idea/
