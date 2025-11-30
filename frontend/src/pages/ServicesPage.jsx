@@ -73,8 +73,8 @@ export const ServicesPage = () => {
                 border: "1px solid transparent",
                 transition: "all 0.3s ease",
                 "&:hover": {
-                  borderColor: "#3b82f6",
-                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
+                  borderColor: "#d91bebff",
+                  boxShadow: "0 0 20px rgba(174, 95, 223, 0.5)",
                 },
               }}
             >
