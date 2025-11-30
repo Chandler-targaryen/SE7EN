@@ -72,6 +72,15 @@ export default function Header() {
             Past Bookings
           </Button>
 
+          <Button 
+            color="inherit" 
+            component={Link} 
+            to="/about" 
+            sx={{ color: isActive("/about") }}
+            >
+            About Us
+          </Button>
+
           {/* AUTH BUTTONS */}
           <SignedOut>
             <Button 

@@ -9,6 +9,8 @@ import Layout from "./components/Layout";
 // Pages
 import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
+import { AboutPage } from "./pages/AboutPage";
+import { ContactPage } from "./pages/ContactPage";
 
 // Auth Pages
 import { LoginPage } from "./pages/auth/LoginPage";
@@ -37,6 +39,15 @@ export default function App() {
             element={
               <Layout>
                 <HomePage />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <AboutPage />
               </Layout>
             }
           />
@@ -82,6 +93,14 @@ export default function App() {
             element={
               <Layout>
                 <UpcomingBookings />
+              </Layout>
+            }
+          />
+          <Route 
+            path="/contact" 
+            element={
+              <Layout>
+                <ContactPage />
               </Layout>
             }
           />
