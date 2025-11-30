@@ -3,11 +3,31 @@ import { Link } from "react-router-dom";
 import AnimatedPage from "../../components/AnimatedPage";
 
 export const BookingConfirmation = () => {
-  const booking = JSON.parse(localStorage.getItem("currentBooking"));
+  // Get the latest booking from allBookings
+  const all = JSON.parse(localStorage.getItem("allBookings")) || [];
+  const booking = all.length > 0 ? all[all.length - 1] : null;
+
+  // If nothing exists (direct access)
+  if (!booking) {
+    return (
+      <AnimatedPage>
+        <Box sx={{ p: 4, textAlign: "center", color: "white", mt: 5 }}>
+          <Typography variant="h5" sx={{ mb: 2 }}>
+            No Booking Found
+          </Typography>
+
+          <Button variant="contained" component={Link} to="/services">
+            Book a Service
+          </Button>
+        </Box>
+      </AnimatedPage>
+    );
+  }
 
   return (
     <AnimatedPage>
       <Box sx={{ p: 4, textAlign: "center", color: "white", mt: 5 }}>
+        {/* TITLE */}
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
           🎉 Booking Confirmed!
         </Typography>
@@ -16,50 +36,67 @@ export const BookingConfirmation = () => {
           Thank you for booking with SE7EN Home Services.
         </Typography>
 
+        {/* DETAILS CARD */}
         <Box
           sx={{
             background: "#111",
             p: 3,
             borderRadius: "16px",
-            maxWidth: "500px",
+            maxWidth: "550px",
             mx: "auto",
             border: "1px solid #333",
-            boxShadow: "0 0 25px rgba(255,255,255,0.1)",
+            boxShadow: "0 0 25px rgba(255,255,255,0.15)",
           }}
         >
-          <Typography variant="h6" sx={{ mb: 2 }}>
+          <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
             Booking Details:
           </Typography>
 
-          <Typography>Service: {booking?.serviceId}</Typography>
-          <Typography>Date: {booking?.date}</Typography>
-          <Typography>Time: {booking?.time}</Typography>
-          <Typography>Address: {booking?.address}</Typography>
+          <Box sx={{ textAlign: "left", maxWidth: "350px", mx: "auto", colour: "white" }}>
+            <Typography sx={{ mb: 1 }}>
+              <strong>Service:</strong> {booking.service || booking.serviceId}
+            </Typography>
+
+            <Typography sx={{ mb: 1 }}>
+              <strong>Date:</strong> {booking.date}
+            </Typography>
+
+            <Typography sx={{ mb: 1 }}>
+              <strong>Time:</strong> {booking.time}
+            </Typography>
+
+            <Typography sx={{ mb: 1 }}>
+              <strong>Address:</strong> {booking.address}
+            </Typography>
+          </Box>
 
           <Typography
             sx={{
-              mt: 2,
+              mt: 3,
               fontWeight: 700,
-              fontSize: "20px",
+              fontSize: "22px",
               color: "#4caf50",
             }}
           >
-            Booking ID: {booking?.bookingId}
+            Booking ID: {booking.bookingId}
           </Typography>
         </Box>
 
-        <Button
-          variant="contained"
-          sx={{ mt: 4, mr: 2 }}
-          component={Link}
-          to="/services"
-        >
-          Book Another Service
-        </Button>
+        {/* BUTTONS */}
+        <Box sx={{ mt: 4 }}>
+          <Button
+            variant="contained"
+            sx={{ mr: 2, px: 3 }}
+            component={Link}
+            to="/services"
+          >
+            Book Another Service
+          </Button>
 
-        <Button variant="outlined" sx={{ mt: 4 }} component={Link} to="/">
-          Go Home
-        </Button>
+          <Button variant="outlined" sx={{ px: 3 }} component={Link} to="/">
+            Go Home
+          </Button>
+        </Box>
       </Box>
     </AnimatedPage>
   );

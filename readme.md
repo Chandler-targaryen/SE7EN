@@ -8,6 +8,7 @@ npm install @mui/icons-material
 npm install framer-motion
 npm install @clerk/clerk-react
 npm install dotenv
+npm install react-icons
 npm start
 
 
@@ -19,6 +20,5 @@ python -m venv .venv
 source venv/bin/activate
 pip install svix
 pip install uvicorn
-
 
 uvicorn app.main:app --reload --port 8000
