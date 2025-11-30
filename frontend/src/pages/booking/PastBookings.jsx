@@ -29,11 +29,17 @@ export const PastBookings = () => {
           }}
         >
           <CardContent>
-            <Typography variant="h6">{booking.service}</Typography>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              {booking.service || "Unknown Service"}
+            </Typography>
+
             <Typography>Date: {booking.date}</Typography>
             <Typography>Time: {booking.time}</Typography>
             <Typography>Address: {booking.address}</Typography>
-            <Typography sx={{ fontWeight: 700 }}>Booking ID: {booking.bookingId}</Typography>
+
+            <Typography sx={{ fontWeight: 700, mt: 1 }}>
+              Booking ID: {booking.bookingId}
+            </Typography>
           </CardContent>
         </Card>
       ))}

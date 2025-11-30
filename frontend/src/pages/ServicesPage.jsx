@@ -16,13 +16,13 @@ import homeIcon from "../assets/logo.png";
 
 // 🔵 Mapping numeric IDs → BookingForm service keys
 const SERVICE_MAP = {
-  1: "cleaning",
-  2: "electrical",
-  3: "plumbing",
-  4: "moving",
-  5: "grocery_drop",
-  6: "vax_help",      // closest match to medicine delivery
-  7: "covid_test",
+  1: "Cleaning",
+  2: "Electrical",
+  3: "Plumbing",
+  4: "Moving",
+  5: "Grocery Delivery",
+  6: "Vaccine Help",      // closest match to medicine delivery
+  7: "Covid Test",
 };
 
 const services = [

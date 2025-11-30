@@ -54,7 +54,7 @@ export const BookingConfirmation = () => {
 
           <Box sx={{ textAlign: "left", maxWidth: "350px", mx: "auto", colour: "white" }}>
             <Typography sx={{ mb: 1 }}>
-              <strong>Service:</strong> {booking.service || booking.serviceId}
+              <strong>Service:</strong> {booking.serviceId}
             </Typography>
 
             <Typography sx={{ mb: 1 }}>

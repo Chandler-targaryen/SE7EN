@@ -53,7 +53,7 @@ export const UpcomingBookings = () => {
           }}
         >
           <CardContent>
-            <Typography variant="h6">{booking.service}</Typography>
+            <Typography variant="h6">{booking.serviceId}</Typography>
 
             <Typography>Date: {booking.date}</Typography>
             <Typography>Time: {booking.time}</Typography>
