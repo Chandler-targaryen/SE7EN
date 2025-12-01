@@ -9,6 +9,12 @@ import json
 
 router = APIRouter()
 
+####
+# As the clerk weebhook needs a public domain this functionality might
+# not work until you deploy the application on a domain add it in the clerk 
+# weebhook endpoint.
+####
+
 # CLERK_WEBHOOK_SECRET = os.getenv("CLERK_WEBHOOK_SECRET")
 CLERK_WEBHOOK_SECRET = "whsec_ywUc7G6WSowhkE4DFtelvatpkxwkTIG9"
 
