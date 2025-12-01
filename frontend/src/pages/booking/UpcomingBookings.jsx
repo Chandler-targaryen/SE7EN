@@ -40,7 +40,7 @@ export const UpcomingBookings = () => {
     };
 
     saveBookingToBackend();
-  }, [user]); // 🔥 Only runs when user loads (correct)
+  }, [user]);
 
   // -----------------------------
   // SEPARATE UPCOMING VS PAST
