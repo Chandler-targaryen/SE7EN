@@ -31,7 +31,7 @@ export const ContactPage = () => {
         </Typography>
 
         <Typography variant="h6" sx={{ mb: 4 }}>
-          📞 Phone: <span style={{ color: "#cf69f7" }}>+61 490 XXX XX0</span>
+          📞 Phone: <span style={{ color: "#cf69f7" }}>+61 45X XXX 000</span>
         </Typography>
 
         {/* TEAM SECTION */}
