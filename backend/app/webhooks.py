@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-router = APIRouter()
+router = APIRouter(prefix="")
 
 ####
 # As the clerk weebhook needs a public domain this functionality might
@@ -15,6 +15,8 @@ router = APIRouter()
 ####
 
 CLERK_WEBHOOK_SECRET = os.getenv('CLERK_WEBHOOK_SECRET')
+# CLERK_WEBHOOK_SECRET = "whsec_ywUc7G6WSowhkE4DFtelvatpkxwkTIG9"
+
 
 @router.post("/webhooks/clerk")
 async def clerk_webhook(request: Request):
