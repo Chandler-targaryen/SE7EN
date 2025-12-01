@@ -1,11 +1,11 @@
-# main.py
-# from main import router
 from fastapi import APIRouter, FastAPI, Request, HTTPException
 from svix.webhooks import Webhook
 from app.database.db import User, SessionLocal
 import os
 import json
+from dotenv import load_dotenv
 
+load_dotenv()
 
 router = APIRouter()
 
@@ -15,8 +15,7 @@ router = APIRouter()
 # weebhook endpoint.
 ####
 
-# CLERK_WEBHOOK_SECRET = os.getenv("CLERK_WEBHOOK_SECRET")
-CLERK_WEBHOOK_SECRET = "whsec_ywUc7G6WSowhkE4DFtelvatpkxwkTIG9"
+CLERK_WEBHOOK_SECRET = os.getenv('CLERK_WEBHOOK_SECRET')
 
 @router.post("/webhooks/clerk")
 async def clerk_webhook(request: Request):
@@ -49,9 +48,9 @@ async def clerk_webhook(request: Request):
             id=data["id"],
             username=data["username"],
             email=data["email_addresses"][0]["email_address"],
-            # first_name=data.get("first_name"),
-            # last_name=data.get("last_name"),
-            # image_url=data.get("image_url")
+            first_name=data.get("first_name"),
+            last_name=data.get("last_name"),
+            image_url=data.get("image_url")
         )
         db.add(user)
         db.commit()
@@ -61,9 +60,9 @@ async def clerk_webhook(request: Request):
         user = db.query(User).filter(User.id == data["id"]).first()
         if user:
             user.email = data["email_addresses"][0]["email_address"]
-            # user.first_name = data.get("first_name")
-            # user.last_name = data.get("last_name")
-            # user.image_url = data.get("image_url")
+            user.first_name = data.get("first_name")
+            user.last_name = data.get("last_name")
+            user.image_url = data.get("image_url")
             db.commit()
 
     return {"status": "ok"}

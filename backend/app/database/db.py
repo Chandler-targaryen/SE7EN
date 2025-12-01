@@ -20,6 +20,9 @@ class User(Base):
     email = EmailStr
     password = Column(String)
     current_bookings = Column(String)
+    first_name = Column(String)
+    last_name = Column(String)
+    image_url = Column(String)
 
 class Bookings(Base):
     __tablename__ = "bookings"

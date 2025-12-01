@@ -9,7 +9,7 @@ app = FastAPI()
 app.include_router(router)
 # router = APIRouter(prefix="")
 
-origins = ["http://localhost:3000", "https://untendered-tawny-extendedly.ngrok-free.dev"]
+origins = ["http://localhost:3000", 'YOUR_PUBLIC_URL']
 
 
 app.add_middleware(
