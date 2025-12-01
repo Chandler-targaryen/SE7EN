@@ -27,7 +27,7 @@ export const AboutPage = () => {
         {/* INTRO */}
         <Typography sx={{ opacity: 0.9, mb: 4, fontSize: "18px" }}>
           SE7EN Home Services is your trusted digital companion for booking  
-          reliable, safe, and contactless home assistance — especially  
+          reliable, safe, and contactless home assistance, especially  
           designed for modern living and COVID-safe interactions.
         </Typography>
 
@@ -47,7 +47,7 @@ export const AboutPage = () => {
                   Who We Are
                 </Typography>
                 <Typography sx={{ opacity: 0.8 }}>
-                  We are a digital platform offering 7 essential services —
+                  We are a digital platform offering 7 essential services,
                   including cleaning, repairs, delivery assistance, and  
                   specialized COVID-related support such as contactless  
                   grocery drop-off and sanitization.
@@ -71,7 +71,7 @@ export const AboutPage = () => {
                 </Typography>
                 <Typography sx={{ opacity: 0.8 }}>
                   Our goal is to make home services accessible, fast,  
-                  safe, and privacy-respecting — using secure authentication,  
+                  safe, and privacy-respecting, using secure authentication,  
                   anonymous booking tokens, and local-only data storage.
                 </Typography>
               </CardContent>
