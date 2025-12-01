@@ -1,8 +1,7 @@
-from fastapi import APIRouter, FastAPI, Request, HTTPException
+from fastapi import APIRouter, Request, HTTPException
 from svix.webhooks import Webhook
 from app.database.db import User, SessionLocal
 import os
-import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -34,7 +33,7 @@ async def clerk_webhook(request: Request):
         event = wh.verify(payload, headers)
         print(f'printing event:\n{event}')
     except Exception as e:
-        print("❌ Signature verification failed:", e)
+        print("Signature verification failed:", e)
         raise HTTPException(status_code=400, detail=f"Invalid signature: {e}")
 
     event_type = event["type"]
