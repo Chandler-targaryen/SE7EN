@@ -7,7 +7,7 @@ SE7VEN home services provides a range of COVID home assistance services. Safe, c
 
 These features are guaranteed by the project's integration of a React frontend, Clerk identity platform, FastAPI backend, and SQLite database.
 
-![Services page](frontend\public\image.png)
+![Services page](frontend/public/image.png)
 
 
 ## Our Mission
